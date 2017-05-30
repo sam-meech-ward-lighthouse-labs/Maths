@@ -12,9 +12,11 @@
 
 - (NSString *)parser:(char*)rawInput;
 {
+    //convert C string to NSString
     NSString *convertedStr = [NSString stringWithCString:rawInput encoding:NSUTF8StringEncoding];
+    //format by removing any trailing and leading spaces/new lines
     NSString *trimmed = [convertedStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    //NSLog(@"%@",trimmed);
+
     return trimmed;
 }
 

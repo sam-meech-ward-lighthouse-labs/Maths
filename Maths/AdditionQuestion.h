@@ -10,6 +10,7 @@
 #define AdditionQuestion_h
 
 @interface AdditionQuestion : NSObject
+//a new random question is generated each time init is called on this class
 
 @property (nonatomic)NSString *question;
 

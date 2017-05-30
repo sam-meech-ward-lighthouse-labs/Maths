@@ -21,6 +21,7 @@
 
 @property (nonatomic,assign) float percentage;
 
+//increments the appropriate properties, and calculates the new percentage
 - (void)newScore:(BOOL)isCorrect;
 
 @end

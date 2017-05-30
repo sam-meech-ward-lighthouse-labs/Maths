@@ -12,13 +12,16 @@
 
 - (instancetype) init {
     if (self == [super init]) {
+        //create numbers between 0 - 90, and add 10, meaning we will always get a number between 10 and 100
         NSInteger firstNum = arc4random_uniform(91) + 10;
-        int printerOne = (int) firstNum;
         NSInteger secondNum = arc4random_uniform(91) + 10;
+        int printerOne = (int) firstNum;
         int printerTwo = (int) secondNum;
+        
         _answer = firstNum + secondNum;
         _question = [NSString stringWithFormat:@"%d + %d ?",printerOne,printerTwo];
     }
+    
     return self;
 }
 

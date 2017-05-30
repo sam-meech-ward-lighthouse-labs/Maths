@@ -11,6 +11,7 @@
 
 @interface InputHandler : NSObject
 
+//uses an NSCharacterSet to format the user input
 - (NSString *)parser:(char*)rawInput;
 
 @end
