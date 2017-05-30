@@ -8,29 +8,31 @@
 
 #import <Foundation/Foundation.h>
 #include "AdditionQuestion.h"
+#include "InputHandler.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSLog(@"MATHS!");
-        
+        InputHandler *inputHandle = [[InputHandler alloc] init];
         bool gameOn = true;
+        
+        //game loop
         while(gameOn) {
-            //get user input
+            //Make new question and ask user for answer
             AdditionQuestion *newQuestion = [[AdditionQuestion alloc] init];
             [newQuestion printQuestion];
             char str[255];
             fgets(str,255,stdin);
             
             //convert the input to a NSString and formats
-            NSString *convertedStr = [NSString stringWithCString:str encoding:NSUTF8StringEncoding];
-            NSString *trimmed = [convertedStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSLog(@"%@",trimmed);
+            NSString *parsed = [inputHandle parser:str];
+
             //QUIT CONDITION
-            if ([trimmed isEqualToString:@"quit"]) {
+            if ([parsed isEqualToString:@"quit"]) {
                 gameOn = NO;
                 continue;
             }
             
-            NSInteger response = [trimmed integerValue];
+            NSInteger response = [parsed integerValue];
             //check the answer
             if([newQuestion checkAnswer:response]) {
                 NSLog(@"Right!");
