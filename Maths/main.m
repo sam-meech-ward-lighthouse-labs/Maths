@@ -7,19 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#include "AdditionQuestion.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        while(true) {
+        NSLog(@"MATHS!");
+        
+        bool gameOn = true;
+        while(gameOn) {
             //get user input
-            printf("Input goes here: ");
+            AdditionQuestion *newQuestion = [[AdditionQuestion alloc] init];
+            [newQuestion printQuestion];
             char str[255];
             fgets(str,255,stdin);
             
             //convert the input to a NSString and formats
             NSString *convertedStr = [NSString stringWithCString:str encoding:NSUTF8StringEncoding];
             [convertedStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSLog(@"you entered: %@",convertedStr);
+            
+            NSInteger response = [convertedStr integerValue];
+            //check the answer
+            if([newQuestion checkAnswer:response]) {
+                NSLog(@"Right!");
+            } else {
+                NSLog(@"Wrong!");
+            }
         }
     }
     return 0;

@@ -12,9 +12,24 @@
 
 - (instancetype) init {
     if (self == [super init]) {
-        //stuff goes here
+        NSInteger firstNum = arc4random_uniform(91) + 10;
+        int printerOne = (int) firstNum;
+        NSInteger secondNum = arc4random_uniform(91) + 10;
+        int printerTwo = (int) secondNum;
+        _answer = firstNum + secondNum;
+        _question = [NSString stringWithFormat:@"%d + %d ?",printerOne,printerTwo];
     }
     return self;
+}
+
+- (void)printQuestion;
+{
+    NSLog(@"%@",_question);
+}
+
+- (BOOL)checkAnswer:(NSInteger)userAns;
+{
+    return (userAns == _answer);
 }
 
 @end

@@ -13,7 +13,11 @@
 
 @property (nonatomic)NSString *question;
 
-@property (nonatomic)NSInteger *answer;
+@property (nonatomic)NSInteger answer;
+
+- (void)printQuestion;
+
+- (BOOL)checkAnswer:(NSInteger)userAns;
 
 @end
 
