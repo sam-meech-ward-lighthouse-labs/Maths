@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #include "AdditionQuestion.h"
 #include "InputHandler.h"
+#include "ScoreKeeper.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSLog(@"MATHS!");
         InputHandler *inputHandle = [[InputHandler alloc] init];
-        bool gameOn = true;
+        ScoreKeeper *scoreHandle = [[ScoreKeeper alloc] init];
+        BOOL gameOn = YES;
         
         //game loop
         while(gameOn) {
@@ -36,10 +39,13 @@ int main(int argc, const char * argv[]) {
             //check the answer
             if([newQuestion checkAnswer:response]) {
                 NSLog(@"Right!");
+                [scoreHandle newScore:YES];
             } else {
                 NSLog(@"Wrong!");
+                [scoreHandle newScore:NO];
             }
         }
     }
+    NSLog(@"Thanks for playing!");
     return 0;
 }

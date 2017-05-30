@@ -10,6 +10,7 @@
 		4309E0451EDDDB0000D96247 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4309E0441EDDDB0000D96247 /* main.m */; };
 		4309E04D1EDDE1D600D96247 /* AdditionQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4309E04C1EDDE1D600D96247 /* AdditionQuestion.m */; };
 		4309E0501EDDEF4E00D96247 /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4309E04F1EDDEF4E00D96247 /* InputHandler.m */; };
+		4309E0531EDDF1AD00D96247 /* ScoreKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4309E0521EDDF1AD00D96247 /* ScoreKeeper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		4309E04C1EDDE1D600D96247 /* AdditionQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionQuestion.m; sourceTree = "<group>"; };
 		4309E04E1EDDEF3800D96247 /* InputHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
 		4309E04F1EDDEF4E00D96247 /* InputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		4309E0511EDDF19A00D96247 /* ScoreKeeper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreKeeper.h; sourceTree = "<group>"; };
+		4309E0521EDDF1AD00D96247 /* ScoreKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				4309E04C1EDDE1D600D96247 /* AdditionQuestion.m */,
 				4309E04E1EDDEF3800D96247 /* InputHandler.h */,
 				4309E04F1EDDEF4E00D96247 /* InputHandler.m */,
+				4309E0511EDDF19A00D96247 /* ScoreKeeper.h */,
+				4309E0521EDDF1AD00D96247 /* ScoreKeeper.m */,
 			);
 			path = Maths;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4309E0531EDDF1AD00D96247 /* ScoreKeeper.m in Sources */,
 				4309E0451EDDDB0000D96247 /* main.m in Sources */,
 				4309E0501EDDEF4E00D96247 /* InputHandler.m in Sources */,
 				4309E04D1EDDE1D600D96247 /* AdditionQuestion.m in Sources */,
