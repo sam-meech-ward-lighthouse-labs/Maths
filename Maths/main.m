@@ -22,9 +22,15 @@ int main(int argc, const char * argv[]) {
             
             //convert the input to a NSString and formats
             NSString *convertedStr = [NSString stringWithCString:str encoding:NSUTF8StringEncoding];
-            [convertedStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSString *trimmed = [convertedStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSLog(@"%@",trimmed);
+            //QUIT CONDITION
+            if ([trimmed isEqualToString:@"quit"]) {
+                gameOn = NO;
+                continue;
+            }
             
-            NSInteger response = [convertedStr integerValue];
+            NSInteger response = [trimmed integerValue];
             //check the answer
             if([newQuestion checkAnswer:response]) {
                 NSLog(@"Right!");
