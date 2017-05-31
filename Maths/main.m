@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "Question.h"
-#include "InputHandler.h"
-#include "ScoreKeeper.h"
-#include "QuestionManager.h"
-#include "QuestionFactory.h"
+#import "Question.h"
+#import "InputHandler.h"
+#import "ScoreKeeper.h"
+#import "QuestionManager.h"
+#import "QuestionFactory.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
