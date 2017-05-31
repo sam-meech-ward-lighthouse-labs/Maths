@@ -11,7 +11,9 @@
 
 @interface Question : NSObject
 
-/*****PROPERTIES*****/
+/// @name PROPERTIES
+
+/// The math question that will be printed to the console.
 @property (nonatomic, strong)NSString *question;
 
 @property (nonatomic)NSInteger answer;
@@ -24,11 +26,23 @@
 
 @property (nonatomic)NSInteger leftValue;
 
-/*****METHODS*****/
+/// @name METHODS
+
+/**
+ Generate a new question.
+ */
 - (void)generateQuestion;
 
+/**
+ Print out the generated question to the console.
+ */
 - (void)printQuestion;
 
+/**
+ Check if the answer to a question is correct.
+ @param userAns The user's answer to be compared against the actual answer.
+ @return YES if the answers match, NO otherwise.
+ */
 - (BOOL)checkAnswer:(NSInteger)userAns;
 
 - (NSTimeInterval)answerTime;
