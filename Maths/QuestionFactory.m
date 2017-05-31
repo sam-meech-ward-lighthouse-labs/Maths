@@ -8,23 +8,40 @@
 
 #import "QuestionFactory.h"
 
-@implementation QuestionFactory
+#import "AdditionQuestion.h"
+#import "SubtractionQuestion.h"
+#import "MultiplicationQuestion.h"
+#import "DivisionQuestion.h"
 
-- (instancetype)init {
-    if (self == [super init]) {
-        //create the array from which we will randomly select the question type
-        _questionSubclassNames = @[@"AdditionQuestion",@"SubtractionQuestion",@"MultiplicationQuestion",@"DivisionQuestion"];
-    }
-    return self;
-}
+typedef NS_ENUM(NSUInteger, QuestionType) {
+    QuestionTypeAddition = 0,
+    QuestionTypeSubtraction,
+    QuestionTypeMultiplication,
+    QuestionTypeDivision,
+};
+static const int kTotalQuestionTypes = 4;
+
+@implementation QuestionFactory
 
 - (Question *)generateRandomQuestion;
 {
-    //randomly generate an index between 0-3, to access the subclass names for question generation
-    NSInteger index = arc4random_uniform(4);
-    NSString *subclass = [_questionSubclassNames objectAtIndex:index];
+    // There are 4 QuestionTypes in the QuestionType enum, and they start at 0 so we can use this number to represent an entry in the enum
+    QuestionType type = arc4random_uniform(kTotalQuestionTypes);
     
-    return ([[NSClassFromString(subclass) alloc] init]);
+    return [self question:type];
+}
+
+- (Question *)question:(QuestionType)type {
+    switch (type) {
+        case QuestionTypeAddition:
+            return [[AdditionQuestion alloc] init];
+        case QuestionTypeSubtraction:
+            return [[SubtractionQuestion alloc] init];
+        case QuestionTypeMultiplication:
+            return [[MultiplicationQuestion alloc] init];
+        case QuestionTypeDivision:
+            return [[DivisionQuestion alloc] init];
+    }
 }
 
 @end

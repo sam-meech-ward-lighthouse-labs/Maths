@@ -10,8 +10,6 @@
 #include "Question.h"
 @interface QuestionFactory : NSObject
 
-@property (nonatomic,strong)NSArray *questionSubclassNames;
-
 //generates a random question by selecting a subclass name from the above array
 - (Question *)generateRandomQuestion;
 
