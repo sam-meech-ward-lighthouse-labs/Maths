@@ -6,8 +6,6 @@
 //  Copyright © 2017 Alex Lee. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#ifndef Question_h
-#define Question_h
 
 @interface Question : NSObject
 
@@ -49,4 +47,3 @@
 
 @end
 
-#endif /* Question_h */
