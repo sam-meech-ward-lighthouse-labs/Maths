@@ -10,8 +10,8 @@
 #define Question_h
 
 @interface Question : NSObject
-//a new random question is generated each time init is called on this class
 
+/*****PROPERTIES*****/
 @property (nonatomic, strong)NSString *question;
 
 @property (nonatomic)NSInteger answer;
@@ -24,6 +24,7 @@
 
 @property (nonatomic)NSInteger leftValue;
 
+/*****METHODS*****/
 - (void)generateQuestion;
 
 - (void)printQuestion;

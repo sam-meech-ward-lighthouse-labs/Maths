@@ -13,13 +13,9 @@
 - (instancetype) init {
     if (self == [super init]) {
         //create numbers between 0 - 90, and add 10, meaning we will always get a number between 10 and 100
-        //NSInteger firstNum = arc4random_uniform(91) + 10;
-        //NSInteger secondNum = arc4random_uniform(91) + 10;
-        
         _leftValue = arc4random_uniform(91) + 10;
         _rightValue = arc4random_uniform(91) + 10;
-//        _answer = firstNum + secondNum;
-//        _question = [NSString stringWithFormat:@"%tu + %tu ?",firstNum,secondNum];
+        //mark the start of the 'timer'
         _startTime = [NSDate date];
     }
     
@@ -28,7 +24,7 @@
 
 - (void)generateQuestion;
 {
-    
+    //each question subclass will have its own generateQuestion method, so the parent's is left blank
 }
 
 - (void)printQuestion;
@@ -38,12 +34,14 @@
 
 - (BOOL)checkAnswer:(NSInteger)userAns;
 {
+    //mark the end of the 'timer' and check for correctness
     _endTime = [NSDate date];
     return (userAns == _answer);
 }
 
 - (NSTimeInterval)answerTime;
 {
+    //find the time (seconds) taken for the user to respond to the question
     NSTimeInterval timeTaken = [_endTime timeIntervalSinceDate:_startTime];
     return timeTaken;
 }

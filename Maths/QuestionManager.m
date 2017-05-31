@@ -25,12 +25,14 @@
 
 - (NSString *)timeOutput;
 {
-    NSTimeInterval temp;
+    NSTimeInterval totalTime;
+    //find the time taken to answer all questions thus far
     for (Question *question in _questions) {
-        temp += [question answerTime];
+        totalTime += [question answerTime];
     }
-    NSTimeInterval avg = temp / [_questions count];
-    NSString *timeStats = [NSString stringWithFormat:@"total time: %.0lfs, average time: %.0lfs",temp,avg];
+    //calculate the average time per question, then print both for the user to see
+    NSTimeInterval avg = totalTime / [_questions count];
+    NSString *timeStats = [NSString stringWithFormat:@"total time: %.0lfs, average time: %.0lfs",totalTime,avg];
     return timeStats;
 }
 

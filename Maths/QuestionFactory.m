@@ -12,6 +12,7 @@
 
 - (instancetype)init {
     if (self == [super init]) {
+        //create the array from which we will randomly select the question type
         _questionSubclassNames = @[@"AdditionQuestion",@"SubtractionQuestion",@"MultiplicationQuestion",@"DivisionQuestion"];
     }
     return self;
@@ -19,6 +20,7 @@
 
 - (Question *)generateRandomQuestion;
 {
+    //randomly generate an index between 0-3, to access the subclass names for question generation
     NSInteger index = arc4random_uniform(4);
     NSString *subclass = [_questionSubclassNames objectAtIndex:index];
     

@@ -13,13 +13,14 @@
 
 - (void)newScore:(BOOL)isCorrect;
 {
+    //increment the appropriate counters
     _total++;
     if (isCorrect) {
         _correct++;
     } else {
         _wrong++;
     }
-    
+    //calculate the player's percentage and print the updated score
     _percentage = (_correct / _total) * 100;
     
     _scoreString = [NSString stringWithFormat:@"score: %.0lf right, %.0lf wrong ---- %.2lf%%",_correct,_wrong,_percentage];
