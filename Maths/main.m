@@ -7,21 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "AdditionQuestion.h"
+#include "Question.h"
 #include "InputHandler.h"
 #include "ScoreKeeper.h"
+#include "QuestionManager.h"
+#include "QuestionFactory.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSLog(@"MATHS!");
         InputHandler *inputHandle = [[InputHandler alloc] init];
         ScoreKeeper *scoreHandle = [[ScoreKeeper alloc] init];
+        QuestionManager *questionHandle = [[QuestionManager alloc] init];
+        QuestionFactory *questionFactory = [[QuestionFactory alloc] init];
+        
         BOOL gameOn = YES;
         
         //game loop
         while(gameOn) {
             //Make new question and ask user for answer
-            AdditionQuestion *newQuestion = [[AdditionQuestion alloc] init];
+            Question *newQuestion = [questionFactory generateRandomQuestion];//[[Question alloc] init];
+            [questionHandle addQuestion:newQuestion];
+            
             [newQuestion printQuestion];
             char str[255];
             fgets(str,255,stdin);
@@ -44,6 +51,9 @@ int main(int argc, const char * argv[]) {
                 NSLog(@"Wrong!");
                 [scoreHandle newScore:NO];
             }
+            
+            NSString *timeString = [questionHandle timeOutput];
+            NSLog(@"%@",timeString);
         }
     }
     NSLog(@"Thanks for playing!");
